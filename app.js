@@ -101,6 +101,10 @@ firebase
     <td><button type="button" class="btn btn-dark" id="${
       data.val().key
     }" onclick="deleteData(this)">Delete</button></td>
+
+    <td><button type="button" class="btn btn-dark" id="${
+      data.val().key
+    }" onclick="editData(this)">Edit</button></td>
     `;
 
     tableRow.innerHTML += tableHtml;
@@ -115,3 +119,81 @@ function deleteData(e) {
   let display = new Display();
   display.showAlert("success", " Deleted successfully");
 }
+
+
+// function for edit data
+ var updateKey;
+function editData(e){
+  let name = document.getElementById("name")
+  let fatherName = document.getElementById("fatherName")
+  name.value=e.parentNode.parentNode.firstChild.innerText
+  fatherName.value=e.parentNode.parentNode.children[1].innerText
+  updateKey=e.id
+  console.log(updateKey)
+  let updateBtn=document.getElementById("updateBtn");
+  updateBtn.style.display="block"
+  let addBtn=document.getElementById("addBtn")
+  addBtn.style.display="none"
+}
+
+
+
+
+
+
+
+
+
+function upBtn(){
+      let name = document.getElementById("name").value
+      let fatherName = document.getElementById("fatherName").value
+      let genderMale = document.getElementById("male");
+      let genderFemale = document.getElementById("female");
+      let type;
+      if (genderMale.checked) {
+        type = genderMale.value;
+      } else if (genderFemale.checked) {
+        type = genderFemale.value;
+      }
+      let updateObj={
+             name:name,
+             fatherName:fatherName,
+             key:updateKey,
+             gender:type
+          }
+
+
+    let display = new Display()
+
+   if( display.validate(updateObj)){
+    firebase.database().ref(`BioData/${updateKey}`).set(updateObj)
+    display.showAlert("success","update Successfully ")
+    let addBtn=document.getElementById("addBtn")
+    addBtn.style.display="block"
+ 
+ 
+    let updateBtn=document.getElementById("updateBtn");
+    updateBtn.style.display="none"
+    display.clear();
+    setTimeout(function(){
+      location.reload()
+   },2000)
+   
+   }
+
+   else{
+   display.showAlert("danger","please fill all text fields")
+   }
+
+  
+
+         
+     
+
+    
+          
+}
+
+
+
+
