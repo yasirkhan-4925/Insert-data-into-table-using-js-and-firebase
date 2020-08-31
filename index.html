@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert Data</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyDnhR4YbxgBz_dheZrzgp1OvkBw_SgiU7k",
+      authDomain: "insertdatatotable.firebaseapp.com",
+      databaseURL: "https://insertdatatotable.firebaseio.com",
+      projectId: "insertdatatotable",
+      storageBucket: "insertdatatotable.appspot.com",
+      messagingSenderId: "464813348384",
+      appId: "1:464813348384:web:dae9c042d3b83bf7c0ce45",
+      measurementId: "G-TWWKYFFPDK"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+  </script>
+</head>
+<body>
+
+    <div id="message">
+
+        
+    </div>
+
+    
+    <div class="container">
+        <div class="container bg-dark">
+        <h1 class="text-center text-white">Bio Data Insertion in JS Tables</h1>
+    </div>
+        <form class="my-4" id="myForm">
+            <div class="form-group row">
+              <label for="name" class="col-sm-2 col-form-label">Name</label>
+              <div class="col-sm-10">
+                <input type="text" placeholder="Name" class="form-control" id="name">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="fatherName" class="col-sm-2 col-form-label">Father Name</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="fatherName" placeholder="Father Name">
+              </div>
+            </div>
+            <fieldset class="form-group">
+              <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0">Gender</legend>
+                <div class="col-sm-10">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="val" id="male" value="Male" checked>
+                    <label class="form-check-label" for="male">
+                      Male
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="val" id="female" value="Female">
+                    <label class="form-check-label" for="female">
+                      Female
+                    </label>
+                  </div>
+                  
+                </div>
+              </div>
+            </fieldset>
+           
+            <div class="form-group row">
+              <div class="col-sm-10">
+                <button type="submit" class="btn btn-dark" id="addBtn">Add</button>
+              </div>
+            </div>
+          </form>
+    </div>
+
+    <div class="container ">
+        <table class="table my-3">
+            <thead class="thead-dark " >
+              <tr>
+        
+                <th scope="col">Name</th>
+                <th scope="col">Father's Name</th>
+                <th scope="col">Gender</th>
+                <th scope="col"></th>
+
+              </tr>
+            </thead>
+            <tbody id="myTablerow" class="border text-center">
+              
+              
+              
+            </tbody>
+          </table>
+          
+         
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>   
+</body>
+<script src="app.js"></script>
+</html>
